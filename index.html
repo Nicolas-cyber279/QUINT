@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081426">
+  <meta name="description" content="Converse com o Q.U.I.N.T.">
+  <title>Q.U.I.N.T. — Conversas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- A aplicação é independente e conversa somente com a API pública do Q.U.I.N.T. -->
+  <div class="aplicativo" id="aplicativo">
+    <aside class="painel-lateral" id="painel-lateral" aria-label="Navegação e conversas">
+      <div class="cabecalho-lateral">
+        <a class="marca" href="#" id="marca-inicial" aria-label="Q.U.I.N.T., iniciar conversa">
+          <span class="marca-simbolo" aria-hidden="true">Q</span>
+          <span>Q.U.I.N.T.</span>
+        </a>
+        <button class="botao-icone botao-fechar-menu" id="botao-fechar-menu" type="button" aria-label="Fechar menu">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <button class="botao-nova-conversa" id="botao-nova-conversa" type="button">
+        <span class="mais" aria-hidden="true">＋</span>
+        <span>Nova conversa</span>
+      </button>
+
+      <div class="rotulo-secao">Recentes</div>
+      <nav class="lista-conversas" id="lista-conversas" aria-label="Conversas recentes">
+        <p class="estado-lista" id="estado-lista">Carregando conversas...</p>
+      </nav>
+
+      <div class="rodape-lateral">
+        <button class="botao-tema" id="botao-tema" type="button" aria-pressed="false">
+          <span class="icone-tema" id="icone-tema" aria-hidden="true">☼</span>
+          <span id="texto-tema">Modo claro</span>
+        </button>
+        <p class="aviso-privacidade">Suas conversas são carregadas diretamente da API.</p>
+      </div>
+    </aside>
+
+    <div class="fundo-menu" id="fundo-menu" aria-hidden="true"></div>
+
+    <main class="area-principal">
+      <header class="barra-superior">
+        <button class="botao-icone botao-menu" id="botao-menu" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <div class="titulo-superior">
+          <span>Q.U.I.N.T.</span>
+          <span class="indicador-modelo">Assistente</span>
+        </div>
+        <span class="espacador-superior" aria-hidden="true"></span>
+      </header>
+
+      <section class="painel-chat" aria-label="Conversa com Q.U.I.N.T.">
+        <div class="mensagens" id="mensagens" aria-live="polite" aria-relevant="additions text">
+          <div class="boas-vindas" id="boas-vindas">
+            <div class="boas-vindas-simbolo" aria-hidden="true">Q</div>
+            <h1>Como posso ajudar?</h1>
+            <p>Envie uma mensagem para começar uma nova conversa.</p>
+          </div>
+        </div>
+
+        <div class="area-composicao">
+          <form class="formulario-mensagem" id="formulario-mensagem">
+            <label class="texto-acessivel" for="campo-mensagem">Sua mensagem</label>
+            <textarea id="campo-mensagem" name="mensagem" rows="1" maxlength="8000" placeholder="Envie uma mensagem..." aria-describedby="nota-composicao" required></textarea>
+            <button class="botao-enviar" id="botao-enviar" type="submit" aria-label="Enviar mensagem">
+              <span aria-hidden="true">↑</span>
+            </button>
+          </form>
+          <p class="nota-composicao" id="nota-composicao">Digite <strong>tchau</strong> para encerrar uma conversa. Se o envio falhar, o texto permanecerá no campo para nova tentativa. As respostas podem conter imprecisões.</p>
+          <p class="mensagem-erro" id="mensagem-erro" role="alert" hidden></p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
